@@ -1,18 +1,16 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { MenuheaderComponent } from './components/menuheader/menuheader.component';
+import { RouterLink } from '@angular/router';
+import { MaterialModule } from '../../../_module/Material.Module';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, OnDestroy } from '@angular/core';
-import { MaterialModule } from '../_module/Material.Module';
+import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-menuheader',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, MenuheaderComponent, MaterialModule],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  imports: [RouterLink, MaterialModule],
+  templateUrl: './menuheader.component.html',
+  styleUrl: './menuheader.component.scss',
 })
-export class AppComponent implements OnDestroy {
+export class MenuheaderComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
 
@@ -25,4 +23,8 @@ export class AppComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
+
+  shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(
+    window.location.host
+  );
 }
