@@ -5,6 +5,9 @@ import { Router, RouterLink } from '@angular/router';
 import { MaterialModule } from '../../../_module/Material.Module';
 import { CommonModule } from '@angular/common';
 import { MatTableDataSource } from '@angular/material/table';
+import { VillageHead } from '../../../_model/Traditionalleader';
+import { MasterService } from '../../_service/master.service';
+import { Villageship } from '../../../_model/Chieftainship';
 
 @Component({
   selector: 'app-chieftainship-list',
@@ -14,29 +17,24 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrl: './chieftainship-list.component.scss',
 })
 export class ChieftainshipListComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private service: MasterService) {}
   dataSource: any;
-  data = [
-    {
-      chieftainship_id: 'id',
-      chieftainship: 'Chieftainship 1',
-      province: 'Manicaland',
-      succession_custom: 'Patriachy',
-      mutupo: 'Nyati',
-    },
-  ];
+  data: Villageship[] = [];
   displayColumns: string[] = [
-    'Chieftainship',
-    'Province',
-    'Mutopo',
-    'Succession Custom',
-    'Number of Headman',
-    'Number of Villages',
-    'Number of Wards',
-    'Number of Households',
+    'chieftainship_id',
+    'chieftainship',
+    'province',
+    'district',
+    'succession_custom',
+    'status',
   ];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  ngAfterViewInit(): void {
+    this.dataSource = new MatTableDataSource(this.data);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -46,9 +44,16 @@ export class ChieftainshipListComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.data);
+    this.loadInitialData();
   }
   clickedRows(row: any) {
-    this.router.navigate(['/chieftainship-view', '1']);
+    this.router.navigate(['/chieftainship-view', row.id]);
+  }
+  loadInitialData() {
+    this.service.getallchieftainships().subscribe((item: Villageship[]) => {
+      console.log(item);
+      this.data = item;
+      this.dataSource.data = this.data;
+    });
   }
 }

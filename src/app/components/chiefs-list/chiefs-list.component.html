@@ -6,48 +6,51 @@
 <div class="mat-elevation-z2">
   <table mat-table [dataSource]="dataSource" matSort>
     <!-- ID Column -->
-    <ng-container matColumnDef="Chieftainship">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Chieftainship</th>
-      <td mat-cell *matCellDef="let row">{{ row.chieftainship }}</td>
+    <ng-container matColumnDef="incumbent">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <td mat-cell *matCellDef="let row">{{ row.incumbent }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="id_number">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID Number</th>
+      <td mat-cell *matCellDef="let row">{{ row.id_number }}</td>
     </ng-container>
 
     <!-- Progress Column -->
-    <ng-container matColumnDef="Name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+    <ng-container matColumnDef="province">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Province</th>
       <td mat-cell *matCellDef="let row">
-        {{ row.firstname }} {{ row.lastname }}
+        {{ row.firstname }} {{ row.province }}
       </td>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="Gender">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Gender</th>
-      <td mat-cell *matCellDef="let row">{{ row.gender }}</td>
+    <ng-container matColumnDef="district">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>District</th>
+      <td mat-cell *matCellDef="let row">{{ row.district }}</td>
     </ng-container>
-
-    <!-- Fruit Column -->
-    <ng-container matColumnDef="ecnumber">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>ecnumber</th>
-      <td mat-cell *matCellDef="let row">{{ row.ecnumber }}</td>
+    <!-- Name Column -->
+    <ng-container matColumnDef="chieftainship">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Chieftainship</th>
+      <td mat-cell *matCellDef="let row">{{ row.chieftainship }}</td>
     </ng-container>
     <!-- Progress Column -->
-    <ng-container matColumnDef="Dob">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Date Of Birth</th>
-      <td mat-cell *matCellDef="let row">{{ row.dob }}</td>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+      <td mat-cell *matCellDef="let row">{{ row.status }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dateofappointment">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Date of Appointment
+      </th>
+      <td mat-cell *matCellDef="let row">{{ row.dateofappointment }}</td>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="Date Of Appointment">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>
-        Date Of Appointment
-      </th>
-      <td mat-cell *matCellDef="let row">{{ row.date_of_appointment }}</td>
-    </ng-container>
-
-    <!-- Fruit Column -->
-    <ng-container matColumnDef="Status">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
-      <td mat-cell *matCellDef="let row">{{ row.status }}</td>
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Gender</th>
+      <td mat-cell *matCellDef="let row">{{ row.gender }}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>

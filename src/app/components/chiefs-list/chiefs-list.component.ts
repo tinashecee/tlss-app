@@ -1,84 +1,49 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Router, RouterLink } from '@angular/router';
 import { MaterialModule } from '../../../_module/Material.Module';
 import { CommonModule } from '@angular/common';
 import { MatTableDataSource } from '@angular/material/table';
+import { MasterService } from '../../_service/master.service';
+import { VillageHead } from '../../../_model/Traditionalleader';
 
 @Component({
   selector: 'app-chiefs-list',
   standalone: true,
   imports: [MaterialModule, CommonModule, RouterLink],
   templateUrl: './chiefs-list.component.html',
-  styleUrl: './chiefs-list.component.scss',
+  styleUrls: ['./chiefs-list.component.scss'],
 })
-export class ChiefsListComponent implements OnInit {
-  constructor(private router: Router) {}
-  dataSource: any;
-  data = [
-    {
-      chieftainship: 'Chieftainship 1',
-      firstname: 'First Name 1',
-      lastname: 'Last Name 1',
-      gender: 'Gender 1',
-      ecnumber: 'EC Number 1',
-      dob: 'DOB 1',
-      date_of_appointment: 'Date Of Appointment 1',
-      status: 'Status 1',
-    },
-    {
-      chieftainship: 'Chieftainship 2',
-      firstname: 'First Name 2',
-      lastname: 'Last Name 2',
-      gender: 'Gender 2',
-      ecnumber: 'EC Number 2',
-      dob: 'DOB 2',
-      date_of_appointment: 'Date Of Appointment 2',
-      status: 'Status 2',
-    },
-    {
-      chieftainship: 'Chieftainship 3',
-      firstname: 'First Name 3',
-      lastname: 'Last Name 3',
-      gender: 'Gender 3',
-      ecnumber: 'EC Number 3',
-      dob: 'DOB 3',
-      date_of_appointment: 'Date Of Appointment 3',
-      status: 'Status 3',
-    },
-    {
-      chieftainship: 'Chieftainship 4',
-      firstname: 'First Name 4',
-      lastname: 'Last Name 4',
-      gender: 'Gender 4',
-      ecnumber: 'EC Number 4',
-      dob: 'DOB 4',
-      date_of_appointment: 'Date Of Appointment 4',
-      status: 'Status 4',
-    },
-    {
-      chieftainship: 'Chieftainship 5',
-      firstname: 'First Name 5',
-      lastname: 'Last Name 5',
-      gender: 'Gender 5',
-      ecnumber: 'EC Number 5',
-      dob: 'DOB 5',
-      date_of_appointment: 'Date Of Appointment 5',
-      status: 'Status 5',
-    },
-  ];
+export class ChiefsListComponent implements OnInit, AfterViewInit {
+  constructor(private router: Router, private service: MasterService) {}
+
+  dataSource!: MatTableDataSource<VillageHead>;
+  data: VillageHead[] = [];
   displayColumns: string[] = [
-    'Chieftainship',
-    'Name',
-    'Gender',
-    'ecnumber',
-    'Dob',
-    'Date Of Appointment',
-    'Status',
+    'chieftainship',
+    'incumbent',
+    'gender',
+    'id_number',
+    'dateofappointment',
+    'status',
+    'province',
+    'district',
   ];
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+
+  ngOnInit(): void {
+    this.loadInitialData();
+  }
+
+  ngAfterViewInit(): void {
+    this.dataSource = new MatTableDataSource(this.data);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -87,10 +52,16 @@ export class ChiefsListComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.data);
+
+  clickedRows(row: VillageHead) {
+    this.router.navigate(['/chief-info', row.chief_id]);
   }
-  clickedRows(row: any) {
-    this.router.navigate(['/chief-info', '1']);
+
+  loadInitialData() {
+    this.service.GetAllChiefs().subscribe((item: VillageHead[]) => {
+      console.log(item);
+      this.data = item;
+      this.dataSource.data = this.data;
+    });
   }
 }

@@ -1,41 +1,48 @@
 <!-- card.component.html -->
-
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title-group>
-      <mat-card-title>John Doe</mat-card-title>
-      <mat-card-subtitle
-        ><strong>Chieftainship:</strong> Some Chieftainship</mat-card-subtitle
+<div class="container">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{ chief?.incumbent }}</mat-card-title>
+        <mat-card-subtitle
+          ><a href="#"
+            ><strong>Chieftainship:</strong> {{ chief?.chieftainship }}</a
+          ></mat-card-subtitle
+        >
+        <img
+          mat-card-md-image
+          src="{{ chief?.picture }}"
+          alt="Image of a Shiba Inu"
+        />
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>ID Number:</strong> {{ chief?.id_number }}</p>
+      <a href="#"
+        ><p><strong>Chieftainship:</strong> {{ chief?.chieftainship }}</p></a
       >
-      <img
-        mat-card-md-image
-        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-        alt="Image of a Shiba Inu"
-      />
-    </mat-card-title-group>
-  </mat-card-header>
-  <mat-card-content>
-    <p><strong>ID Number:</strong> 63-********</p>
-    <a href="#"
-      ><p><strong>Chieftainship:</strong> Some Chieftainship</p></a
-    >
-    <p><strong>Mutopo:</strong> Some Mutopo</p>
-    <p><strong>EC Number:</strong> EC12345</p>
-    <p><strong>Gender:</strong> Male</p>
-    <p><strong>Status:</strong> Active</p>
-    <p><strong>Bank:</strong> Some Bank</p>
-    <p><strong>Account Number:</strong> 1234567890</p>
-    <p><strong>Contact Number:</strong> +1234567890</p>
-    <p><strong>Next of Kin:</strong> Jane Doe</p>
-    <p><strong>Biosignature:</strong> Some BioSignature</p>
-    <p><strong>Spouses:</strong> Jane Doe</p>
-    <p><strong>Offspring:</strong> Child 1, Child 2</p>
-    <p><strong>Car Registration Number:</strong> ABC123</p>
-    <p><strong>Date of Issue:</strong> 2022-01-01</p>
-    <p><strong>Physical Address:</strong> 123 Main St, City</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button color="primary">View Succession History</button>
-    <button mat-raised-button color="warn">Change Status</button>
-  </mat-card-actions>
-</mat-card>
+      <p><strong>Mutopo:</strong> {{ chief?.mutupo }}</p>
+      <p><strong>EC Number:</strong> {{ chief?.ecnumber }}</p>
+      <p><strong>Gender:</strong> {{ chief?.gender }}</p>
+      <p><strong>Status:</strong> {{ chief?.status }}</p>
+      <p><strong>Bank:</strong> {{ chief?.bank }}</p>
+      <p><strong>Account Number:</strong> {{ chief?.accountnumber }}</p>
+      <p><strong>Contact Number:</strong> {{ chief?.contactnumber }}</p>
+      <p><strong>Next of Kin:</strong> {{ chief?.nextofkin }}</p>
+      <p><strong>Biosignature:</strong> {{ chief?.biosignature }}</p>
+      <p><strong>Spouses:</strong> {{ chief?.spouses }}</p>
+      <p><strong>Offspring:</strong> {{ chief?.offspring }}</p>
+      <p><strong>Car Registration Number:</strong> {{ chief?.car_reg_no }}</p>
+      <p><strong>Date of Issue:</strong> {{ chief?.dateofissue }}</p>
+      <p><strong>Physical Address:</strong> {{ chief?.physicalladdress }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="example-button-row">
+        <button mat-raised-button color="primary">
+          View Succession History
+        </button>
+        <button mat-raised-button color="warn">Change Status</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

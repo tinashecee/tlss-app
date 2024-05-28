@@ -3,3 +3,70 @@
   margin: 15px;
   padding: 15px;
 }
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("../../../assets/Default_african_village_with_black_and_white_light_sketch_tone_0.jpg"); /* Replace with the URL of your background image */
+  background-size: cover; /* Corner radius of 40% */
+}
+p {
+  margin: 0;
+}
+
+p:not(:last-child) {
+  margin-bottom: 1.5em;
+}
+.example-card {
+  min-height: 70vh; /* Minimum height of 70 viewport height */
+  width: 900px;
+
+  font: 1.2em/1.618 Roboto, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 35px;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  //background-color: rgba(255, 255, 255, 0.55);
+  background-color: white;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.55);
+
+  backdrop-filter: blur(15px);
+}
+.example-button-row {
+  display: table-cell;
+  max-width: 600px;
+}
+
+.example-button-row .mat-mdc-button-base {
+  margin: 8px 8px 8px 0;
+}
+.mat-card-content {
+  font-size: calc(14px + 0.5vw); /* Responsive font size */
+}
+.display-5 {
+  font-size: calc(1.425rem + 2.1vw);
+  font-weight: 600;
+  line-height: 1;
+}
+@media (min-width: 1200px) {
+  .display-5 {
+    font-size: 3rem;
+  }
+}
+.strong {
+  font-size: calc((1.425rem + 2.1vw) / 2); /* Reduced scale by 3 */
+  font-weight: 600;
+  line-height: 1;
+}
+
+@media (min-width: 1200px) {
+  .strong {
+    font-size: 1.5rem; /* Adjusted to maintain consistency */
+  }
+}

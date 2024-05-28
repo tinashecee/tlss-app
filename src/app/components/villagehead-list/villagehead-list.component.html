@@ -1,1 +1,87 @@
-<p>villagehead-list works!</p>
+<mat-form-field style="width: auto">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input />
+</mat-form-field>
+
+<div class="mat-elevation-z2">
+  <table mat-table [dataSource]="dataSource" matSort>
+    <!-- ID Column -->
+    <ng-container matColumnDef="incumbent">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <td mat-cell *matCellDef="let row">{{ row.incumbent }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="id_number">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID Number</th>
+      <td mat-cell *matCellDef="let row">{{ row.id_number }}</td>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="province">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Province</th>
+      <td mat-cell *matCellDef="let row">
+        {{ row.firstname }} {{ row.province }}
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="district">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>District</th>
+      <td mat-cell *matCellDef="let row">{{ row.district }}</td>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="chieftainship">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Chieftainship</th>
+      <td mat-cell *matCellDef="let row">{{ row.chieftainship }}</td>
+    </ng-container>
+
+    <!-- Fruit Column -->
+    <ng-container matColumnDef="headmanship">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Headmanship</th>
+      <td mat-cell *matCellDef="let row">{{ row.headmanship }}</td>
+    </ng-container>
+
+    <!-- Fruit Column -->
+    <ng-container matColumnDef="villageship">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Villageship</th>
+      <td mat-cell *matCellDef="let row">{{ row.villageship }}</td>
+    </ng-container>
+    <!-- Progress Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+      <td mat-cell *matCellDef="let row">{{ row.status }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dateofappointment">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Date of Appointment
+      </th>
+      <td mat-cell *matCellDef="let row">{{ row.dateofappointment }}</td>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Gender</th>
+      <td mat-cell *matCellDef="let row">{{ row.gender }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+    <tr
+      mat-row
+      mat-row
+      (click)="clickedRows(row)"
+      *matRowDef="let row; columns: displayColumns"
+    ></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">
+        No data matching the filter "{{ input.value }}"
+      </td>
+    </tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page of users"
+  ></mat-paginator>
+</div>

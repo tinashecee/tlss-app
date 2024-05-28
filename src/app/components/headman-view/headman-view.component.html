@@ -1,0 +1,44 @@
+<!-- card.component.html -->
+<div class="container">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{ headman?.incumbent }}</mat-card-title>
+        <mat-card-subtitle
+          ><a href="#"
+            ><strong>Headmanship:</strong> {{ headman?.headmanship }}</a
+          ></mat-card-subtitle
+        >
+        <img
+          mat-card-md-image
+          src="{{ headman?.picture }}"
+          alt="Image of a Shiba Inu"
+        />
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>ID Number:</strong> {{ headman?.id_number }}</p>
+      <a href="#"
+        ><p><strong>Chieftainship:</strong> {{ headman?.chieftainship }}</p></a
+      >
+      <p><strong>Mutopo:</strong> {{ headman?.mutupo }}</p>
+      <p><strong>EC Number:</strong> {{ headman?.ecnumber }}</p>
+      <p><strong>Gender:</strong> {{ headman?.gender }}</p>
+      <p><strong>Status:</strong> {{ headman?.status }}</p>
+      <p><strong>Bank:</strong> {{ headman?.bank }}</p>
+      <p><strong>Account Number:</strong> {{ headman?.accountnumber }}</p>
+      <p><strong>Contact Number:</strong> {{ headman?.contactnumber }}</p>
+      <p><strong>Next of Kin:</strong> {{ headman?.nextofkin }}</p>
+      <p><strong>Biosignature:</strong> {{ headman?.biosignature }}</p>
+      <p><strong>Physical Address:</strong> {{ headman?.physicalladdress }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="example-button-row">
+        <button mat-raised-button color="primary">
+          View Succession History
+        </button>
+        <button mat-raised-button color="warn">Change Status</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

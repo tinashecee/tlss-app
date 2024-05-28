@@ -1,0 +1,220 @@
+{
+  "chieftainships": [
+    {
+      "id": 1,
+      "chieftainship_id": 1,
+      "chieftainship": "CHIWESHE",
+      "province": "Mashonaland Central",
+      "district": "Mazowe",
+      "succession_custom": "Patriarchy",
+      "status": "ACTING"
+    },
+    {
+      "id": 2,
+      "chieftainship_id": 2,
+      "chieftainship": "MAKOPE",
+      "province": "Mashonaland Central",
+      "district": "Mazowe",
+      "succession_custom": "Patriarchy",
+      "status": "SUBSTANTIVE"
+    },
+    {
+      "id": 3,
+      "chieftainship_id": 3,
+      "chieftainship": "NEGOMO",
+      "province": "Mashonaland Central",
+      "district": "Mazowe",
+      "succession_custom": "Patriarchy",
+      "status": "ACTING"
+    },
+    {
+      "id": 4,
+      "chieftainship_id": 4,
+      "chieftainship": "Musana",
+      "province": "Mashonaland Central",
+      "district": "Bindura",
+      "succession_custom": "Patriarchy",
+      "status": "SUBSTANTIVE"
+    },
+    {
+      "id": 5,
+      "chieftainship_id": 5,
+      "chieftainship": "Masembura",
+      "province": "Mashonaland Central",
+      "district": "Bindura",
+      "succession_custom": "Patriarchy",
+      "status": "ACTING"
+    },
+    {
+      "id": 6,
+      "chieftainship_id": 6,
+      "chieftainship": "BEPURA",
+      "province": "Mashonaland Central",
+      "district": "Guruve",
+      "succession_custom": "Patriarchy",
+      "status": "ACTING"
+    },
+    {
+      "id": 7,
+      "chieftainship_id": 7,
+      "chieftainship": "CHIPURIRO",
+      "province": "Mashonaland Central",
+      "district": "Guruve",
+      "succession_custom": "Patriarchy",
+      "status": "SUBSTANTIVE"
+    },
+    {
+      "id": 9,
+      "chieftainship_id": 9,
+      "chieftainship": "CHITSUNGO",
+      "province": "Mashonaland Central",
+      "district": "MBIRE",
+      "succession_custom": "Patriarchy",
+      "status": "SUBSTANTIVE"
+    },
+    {
+      "id": 10,
+      "chieftainship_id": 10,
+      "chieftainship": "CHISUNGA",
+      "province": "Mashonaland Central",
+      "district": "MBIRE",
+      "succession_custom": "Patriarchy",
+      "status": "SUBSTANTIVE"
+    },
+    {
+      "id": 11,
+      "chieftainship_id": 11,
+      "chieftainship": "CHAPOTO",
+      "province": "Mashonaland Central",
+      "district": "MBIRE",
+      "succession_custom": "Patriarchy",
+      "status": "SUBSTANTIVE"
+    },
+    {
+      "id": 12,
+      "chieftainship_id": 12,
+      "chieftainship": "MATSIWO",
+      "province": "Mashonaland Central",
+      "district": "MBIRE",
+      "succession_custom": "Patriarchy",
+      "status": "SUBSTANTIVE"
+    },
+    {
+      "id": 13,
+      "chieftainship_id": 13,
+      "chieftainship": "Chiswiti",
+      "province": "Mashonaland Central",
+      "district": "Mount Darwin",
+      "succession_custom": "Patriarchy",
+      "status": "SUBSTANTIVE"
+    },
+    {
+      "id": 14,
+      "chieftainship_id": 14,
+      "chieftainship": "Dotito",
+      "province": "Mashonaland Central",
+      "district": "Mount Darwin",
+      "succession_custom": "Patriarchy",
+      "status": "ACTING"
+    },
+    {
+      "id": 15,
+      "chieftainship_id": 15,
+      "chieftainship": "Kandeya",
+      "province": "Mashonaland Central",
+      "district": "Mount Darwin",
+      "succession_custom": "Patriarchy",
+      "status": "SUBSTANTIVE"
+    },
+    {
+      "id": 16,
+      "chieftainship_id": 16,
+      "chieftainship": "Matope",
+      "province": "Mashonaland Central",
+      "district": "Mount Darwin",
+      "succession_custom": "Patriarchy",
+      "status": "SUBSTANTIVE"
+    },
+    {
+      "id": 17,
+      "chieftainship_id": 17,
+      "chieftainship": "Nembire",
+      "province": "Mashonaland Central",
+      "district": "Mount Darwin",
+      "succession_custom": "Patriarchy",
+      "status": "SUBSTANTIVE"
+    },
+    {
+      "id": 18,
+      "chieftainship_id": 18,
+      "chieftainship": "KASEKETE",
+      "province": "Mashonaland Central",
+      "district": "Muzarabani",
+      "succession_custom": "Patriarchy",
+      "status": "SUBSTANTIVE"
+    },
+    {
+      "id": 19,
+      "chieftainship_id": 19,
+      "chieftainship": "CHIWESHE",
+      "province": "Mashonaland Central",
+      "district": "Muzarabani",
+      "succession_custom": "Patriarchy",
+      "status": "SUBSTANTIVE"
+    },
+    {
+      "id": 20,
+      "chieftainship_id": 20,
+      "chieftainship": "HWATA",
+      "province": "Mashonaland Central",
+      "district": "Muzarabani",
+      "succession_custom": "Patriarchy",
+      "status": "SUBSTANTIVE"
+    },
+    {
+      "id": 21,
+      "chieftainship_id": 21,
+      "chieftainship": "",
+      "province": "Mashonaland Central",
+      "district": "Rushinga",
+      "succession_custom": "Patriarchy",
+      "status": "SUBSTANTIVE"
+    },
+    {
+      "id": 22,
+      "chieftainship_id": 22,
+      "chieftainship": "",
+      "province": "Mashonaland Central",
+      "district": "Rushinga",
+      "succession_custom": "Patriarchy",
+      "status": "SUBSTANTIVE"
+    },
+    {
+      "id": 23,
+      "chieftainship_id": 23,
+      "chieftainship": "",
+      "province": "Mashonaland Central",
+      "district": "Rushinga",
+      "succession_custom": "Patriarchy",
+      "status": "SUBSTANTIVE"
+    },
+    {
+      "id": 24,
+      "chieftainship_id": 24,
+      "chieftainship": "Bushu",
+      "province": "Mashonaland Central",
+      "district": "Shamva",
+      "succession_custom": "Patriarchy",
+      "status": "SUBSTANTIVE"
+    },
+    {
+      "id": 25,
+      "chieftainship_id": 25,
+      "chieftainship": "Bushu",
+      "province": "Mashonaland Central",
+      "district": "Shamva",
+      "succession_custom": "Patriarchy",
+      "status": "SUBSTANTIVE"
+    }
+  ]
+}

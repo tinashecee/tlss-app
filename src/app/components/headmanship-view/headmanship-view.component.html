@@ -1,22 +1,42 @@
 <!-- card.component.html -->
+<div class="container">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title
+          ><p class="display-5">
+            Headmanship: {{ data.headmanship }}
+          </p></mat-card-title
+        >
+        <mat-card-subtitle
+          ><p>
+            Status: <span class="strong"> {{ data.status }}</span>
+          </p></mat-card-subtitle
+        >
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        Succession Custom:
+        <span class="strong"> {{ data.succession_custom }}</span>
+      </p>
+      <p>
+        Chieftainship: <span class="strong"> {{ data.chieftainship }}</span>
+      </p>
+      <p>
+        Province: <span class="strong"> {{ data.province }}</span>
+      </p>
+      <p>
+        District: <span class="strong"> {{ data.district }}</span>
+      </p>
 
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title-group>
-      <mat-card-title>Headmanship</mat-card-title>
-      <mat-card-subtitle><strong>Province:</strong> Province</mat-card-subtitle>
-    </mat-card-title-group>
-  </mat-card-header>
-  <mat-card-content>
-    <p><strong>Succession Custom:</strong> Patriarchy</p>
-    <p><strong>Mutupo:</strong> Nyati</p>
-    <p><strong>Vilages:</strong> villages....</p>
-
-    <p><strong>Wards:</strong> Wards....</p>
-    <p><strong>Households:</strong> Households....</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button color="primary">View Headman</button>
-    <button mat-raised-button color="warn">Edit</button>
-  </mat-card-actions>
-</mat-card>
+      <p>Village: <span class="strong"> - </span></p>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="example-button-row">
+        <button mat-raised-button color="primary">View Headman</button>
+        <button mat-raised-button color="warn">Edit</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -32,6 +32,20 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'headman-info/:id',
+    loadComponent: () =>
+      import('./components/headman-view/headman-view.component').then(
+        (m) => m.HeadmanViewComponent
+      ),
+  },
+  {
+    path: 'villagehead-info/:id',
+    loadComponent: () =>
+      import('./components/villagehead-view/villagehead-view.component').then(
+        (m) => m.VillageheadViewComponent
+      ),
+  },
+  {
     path: 'chieftainship',
     loadComponent: () =>
       import(

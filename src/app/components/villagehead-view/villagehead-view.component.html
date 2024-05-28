@@ -1,0 +1,51 @@
+<!-- card.component.html -->
+<div class="container">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{ villagehead?.incumbent }}</mat-card-title>
+        <mat-card-subtitle
+          ><a href="#"
+            ><strong>Villageship:</strong> {{ villagehead?.villagemanship }}</a
+          ></mat-card-subtitle
+        >
+        <img
+          mat-card-md-image
+          src="{{ villagehead?.picture }}"
+          alt="Image of a Shiba Inu"
+        />
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>ID Number:</strong> {{ villagehead?.id_number }}</p>
+      <a href="#"
+        ><p>
+          <strong>Chieftainship:</strong> {{ villagehead?.chieftainship }}
+        </p></a
+      >
+      <a href="#"
+        ><p><strong>Headmanship:</strong> {{ villagehead?.headmanship }}</p></a
+      >
+      <p><strong>Mutopo:</strong> {{ villagehead?.mutupo }}</p>
+      <p><strong>EC Number:</strong> {{ villagehead?.ecnumber }}</p>
+      <p><strong>Gender:</strong> {{ villagehead?.gender }}</p>
+      <p><strong>Status:</strong> {{ villagehead?.status }}</p>
+      <p><strong>Bank:</strong> {{ villagehead?.bank }}</p>
+      <p><strong>Account Number:</strong> {{ villagehead?.accountnumber }}</p>
+      <p><strong>Contact Number:</strong> {{ villagehead?.contactnumber }}</p>
+      <p><strong>Next of Kin:</strong> {{ villagehead?.nextofkin }}</p>
+      <p><strong>Biosignature:</strong> {{ villagehead?.biosignature }}</p>
+      <p>
+        <strong>Physical Address:</strong> {{ villagehead?.physicalladdress }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="example-button-row">
+        <button mat-raised-button color="primary">
+          View Succession History
+        </button>
+        <button mat-raised-button color="warn">Change Status</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

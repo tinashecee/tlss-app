@@ -1,23 +1,41 @@
 <!-- card.component.html -->
+<div class="container">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title
+          ><p class="display-5">
+            Chieftainship: {{ data.chieftainship }}
+          </p></mat-card-title
+        >
+        <mat-card-subtitle
+          ><p>
+            Status: <span class="strong">{{ data.status }}</span>
+          </p>
+          <br
+        /></mat-card-subtitle>
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        Succession Custom:
+        <span class="strong">{{ data.succession_custom }}</span>
+      </p>
+      <p>
+        Province: <span class="strong">{{ data.province }}</span>
+      </p>
+      <p>
+        District: <span class="strong">{{ data.district }}</span>
+      </p>
 
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title-group>
-      <mat-card-title>Chieftainship</mat-card-title>
-      <mat-card-subtitle><strong>Province:</strong> Province</mat-card-subtitle>
-    </mat-card-title-group>
-  </mat-card-header>
-  <mat-card-content>
-    <p><strong>Succession Custom:</strong> Patriarchy</p>
-    <p><strong>Mutupo:</strong> Nyati</p>
-    <p><strong>headman:</strong> headmad...</p>
-    <p><strong>Vilages:</strong> villages....</p>
-
-    <p><strong>Wards:</strong> Wards....</p>
-    <p><strong>Households:</strong> Households....</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button color="primary">View Chief</button>
-    <button mat-raised-button color="warn">Edit</button>
-  </mat-card-actions>
-</mat-card>
+      <p>Headmanships: <span class="strong">-</span></p>
+      <p>Villageships: <span class="strong">-</span></p>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="example-button-row">
+        <button mat-raised-button color="primary">View Chief</button>
+        <button mat-raised-button color="warn">Edit</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>
