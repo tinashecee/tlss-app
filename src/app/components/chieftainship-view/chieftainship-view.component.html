@@ -22,18 +22,39 @@
         <span class="strong">{{ data.succession_custom }}</span>
       </p>
       <p>
+        Origin of Chieftainship:
+        <span class="strong">Origin</span>
+      </p>
+      <p>
+        Founding Father:
+        <span class="strong"></span>
+      </p>
+      <p>
         Province: <span class="strong">{{ data.province }}</span>
       </p>
       <p>
         District: <span class="strong">{{ data.district }}</span>
       </p>
 
-      <p>Headmanships: <span class="strong">-</span></p>
-      <p>Villageships: <span class="strong">-</span></p>
+      <p>
+        Headmanships:
+        <span class="strong"
+          ><button mat-raised-button (click)="openDialog()">View</button>
+        </span>
+      </p>
+      <p>
+        Villageships:
+        <span class="strong"
+          ><button mat-raised-button (click)="openDialog1()">View</button></span
+        >
+      </p>
     </mat-card-content>
     <mat-card-actions>
       <div class="example-button-row">
         <button mat-raised-button color="primary">View Chief</button>
+        <button mat-raised-button color="primary" (click)="navigateToHistory()">
+          View Succession History
+        </button>
         <button mat-raised-button color="warn">Edit</button>
       </div>
     </mat-card-actions>

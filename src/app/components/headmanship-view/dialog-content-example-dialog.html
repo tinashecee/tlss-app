@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Villages</h2>
+<mat-dialog-content class="mat-typography">
+  <mat-nav-list>
+    @for (link of list; track link; ) {
+    <a
+      mat-list-item
+      [href]="'/village-view/' + link.id"
+      [activated]="link.isActive"
+      >{{ link.index }}. {{ link.villageship }}</a
+    >}
+  </mat-nav-list>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

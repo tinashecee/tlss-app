@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MasterService } from '../../_service/master.service';
 import { MaterialModule } from '../../../_module/Material.Module';
 
@@ -17,7 +17,8 @@ export class HeadmanViewComponent {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private masterService: MasterService
+    private masterService: MasterService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -36,5 +37,8 @@ export class HeadmanViewComponent {
       this.headman = this.headman1[0];
       console.log(this.headman1);
     });
+  }
+  navigateToHistory() {
+    this.router.navigate(['/headman-lineage']);
   }
 }

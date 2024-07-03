@@ -17,6 +17,7 @@
       </mat-card-title-group>
     </mat-card-header>
     <mat-card-content>
+      <p><strong>Last verified:</strong></p>
       <p><strong>ID Number:</strong> {{ chief?.id_number }}</p>
       <a href="#"
         ><p><strong>Chieftainship:</strong> {{ chief?.chieftainship }}</p></a
@@ -38,10 +39,9 @@
     </mat-card-content>
     <mat-card-actions>
       <div class="example-button-row">
-        <button mat-raised-button color="primary">
-          View Succession History
+        <button mat-raised-button color="warn" (click)="appointChief()">
+          Change Status
         </button>
-        <button mat-raised-button color="warn">Change Status</button>
       </div>
     </mat-card-actions>
   </mat-card>

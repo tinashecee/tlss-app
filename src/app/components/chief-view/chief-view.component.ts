@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../../_module/Material.Module';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { VillageHead } from '../../../_model/Traditionalleader';
 import { MasterService } from '../../_service/master.service';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-chief-view',
@@ -18,7 +19,8 @@ export class ChiefViewComponent {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private masterService: MasterService
+    private masterService: MasterService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -36,5 +38,9 @@ export class ChiefViewComponent {
       this.chief1 = data;
       this.chief = this.chief1[0];
     });
+  }
+
+  appointChief() {
+    this.router.navigate(['/appoint-chief']);
   }
 }

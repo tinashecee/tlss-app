@@ -1,1 +1,104 @@
-<p>home works!</p>
+<!--dash.component.html-->
+<div class="grid-container">
+  <h1 class="mat-h1">Dashboard</h1>
+  <mat-grid-list cols="{{ (cardLayout | async)?.columns }}" rowHeight="200px">
+    <!--Mini Cards-->
+    <!--Mini Cards
+    <mat-grid-tile
+      [colspan]="(cardLayout | async)?.miniCard?.cols"
+      [rowspan]="(cardLayout | async)?.miniCard?.rows"
+    >
+    </mat-grid-tile>
+    -->
+    <!--Charts-->
+    <!--dash.component.html-->
+
+    <!--Charts-->
+    <mat-grid-tile
+      [colspan]="(cardLayout | async)?.chart?.cols"
+      [rowspan]="(cardLayout | async)?.chart?.rows"
+    >
+      <app-card title="Chiefs per Province">
+        <div class="chartContainer">
+          <canvas
+            baseChart
+            [data]="barChartData"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [type]="'bar'"
+          >
+          </canvas>
+        </div>
+      </app-card>
+    </mat-grid-tile>
+    <mat-grid-tile
+      [colspan]="(cardLayout | async)?.chart?.cols"
+      [rowspan]="(cardLayout | async)?.chart?.rows"
+    >
+      <app-card title="Headman per Province">
+        <div class="chartContainer">
+          <canvas
+            baseChart
+            [data]="barChartData1"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [type]="'bar'"
+          >
+          </canvas>
+        </div>
+      </app-card>
+    </mat-grid-tile>
+    <mat-grid-tile
+      [colspan]="(cardLayout | async)?.chart?.cols"
+      [rowspan]="(cardLayout | async)?.chart?.rows"
+    >
+      <app-card title="Villageheads per Province">
+        <div class="chartContainer">
+          <canvas
+            baseChart
+            [data]="barChartData2"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [type]="'bar'"
+          >
+          </canvas>
+        </div>
+      </app-card>
+    </mat-grid-tile>
+    <mat-grid-tile
+      [colspan]="(cardLayout | async)?.chart?.cols"
+      [rowspan]="(cardLayout | async)?.chart?.rows"
+    >
+      <app-card title="Chieftainships per province"
+        ><app-pie></app-pie>
+      </app-card>
+    </mat-grid-tile>
+    <mat-grid-tile
+      [colspan]="(cardLayout | async)?.chart?.cols"
+      [rowspan]="(cardLayout | async)?.chart?.rows"
+    >
+      <app-card title="Headmanships per province"
+        ><app-pie></app-pie>
+      </app-card>
+    </mat-grid-tile>
+    <mat-grid-tile
+      [colspan]="(cardLayout | async)?.chart?.cols"
+      [rowspan]="(cardLayout | async)?.chart?.rows"
+    >
+      <app-card title="Chief Appointments this year"
+        ><app-line></app-line>
+      </app-card>
+    </mat-grid-tile>
+    <mat-grid-tile
+      [colspan]="(cardLayout | async)?.chart?.cols"
+      [rowspan]="(cardLayout | async)?.chart?.rows"
+    >
+      <app-card title="Headman Appointments this year"
+        ><app-line></app-line>
+      </app-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

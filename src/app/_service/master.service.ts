@@ -62,7 +62,7 @@ export class MasterService {
   GetVillageshipbyId(id: number) {
     // GetChiefbycode is renamed to GetChiefbyId with number parameter
     return this.http.get<VillageHead>(
-      'http://localhost:3000/villageheads/?id=' + id
+      'http://localhost:3000/villageship/?id=' + id
     ); // Template literal for URL construction
   }
   haveaccess() {

@@ -87,4 +87,32 @@ export const routes: Routes = [
         (m) => m.VillageViewComponent
       ),
   },
+  {
+    path: 'chief-lineage',
+    loadComponent: () =>
+      import('./components/chief-lineage/chief-lineage.component').then(
+        (m) => m.ChiefLineageComponent
+      ),
+  },
+  {
+    path: 'headman-lineage',
+    loadComponent: () =>
+      import('./components/headman-lineage/headman-lineage.component').then(
+        (m) => m.HeadmanLineageComponent
+      ),
+  },
+  {
+    path: 'villagehead-lineage',
+    loadComponent: () =>
+      import(
+        './components/villagehead-lineage/villagehead-lineage.component'
+      ).then((m) => m.VillageheadLineageComponent),
+  },
+  {
+    path: 'appoint-chief',
+    loadComponent: () =>
+      import('./components/appoint-chief/appoint-chief.component').then(
+        (m) => m.AppointChiefComponent
+      ),
+  },
 ];

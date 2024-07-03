@@ -30,7 +30,12 @@
         District: <span class="strong"> {{ data.district }}</span>
       </p>
 
-      <p>Village: <span class="strong"> - </span></p>
+      <p>
+        Villages:
+        <span class="strong"
+          ><button mat-raised-button (click)="openDialog()">View</button></span
+        >
+      </p>
     </mat-card-content>
     <mat-card-actions>
       <div class="example-button-row">

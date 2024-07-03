@@ -31,7 +31,7 @@ export class VillageViewComponent {
   }
 
   getData(dataId: number) {
-    this.masterService.GetChieftainshipbyId(dataId).subscribe((data) => {
+    this.masterService.GetVillageshipbyId(dataId).subscribe((data) => {
       this.data1 = data;
       this.data = this.data1[0];
     });

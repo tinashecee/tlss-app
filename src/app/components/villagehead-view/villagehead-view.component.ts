@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../../_module/Material.Module';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MasterService } from '../../_service/master.service';
 
 @Component({
@@ -17,7 +17,8 @@ export class VillageheadViewComponent {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private masterService: MasterService
+    private masterService: MasterService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -36,5 +37,8 @@ export class VillageheadViewComponent {
       this.villagehead = this.villagehead1[0];
       console.log(this.villagehead1);
     });
+  }
+  navigateToHistory() {
+    this.router.navigate(['/villagehead-lineage']);
   }
 }
