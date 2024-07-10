@@ -14,6 +14,7 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { PieComponent } from '../../charts/pie/pie.component';
 import { LineComponent } from '../../charts/line/line.component';
 import { HeadmanshipListComponent } from '../headmanship-list/headmanship-list.component';
+import { VillageperprovinceComponent } from '../../charts/villageperprovince/villageperprovince.component';
 Chart.register(...registerables);
 Chart.register(ChartDataLabels);
 @Component({
@@ -26,6 +27,7 @@ Chart.register(ChartDataLabels);
     PieComponent,
     LineComponent,
     HeadmanshipListComponent,
+    VillageperprovinceComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

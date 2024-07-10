@@ -19,6 +19,7 @@ import {
 export class ChieftainshipViewComponent {
   data1: any;
   data: any;
+  obj: any;
   dataId: number | null = null;
 
   constructor(
@@ -48,6 +49,16 @@ export class ChieftainshipViewComponent {
   }
   navigateToHistory() {
     this.router.navigate(['/chief-lineage']);
+  }
+
+  openDialog2(row: any) {
+    this.masterService.GetAllChiefs().subscribe((item: VillageHead[]) => {
+      item.forEach((e) => {
+        if (e.chieftainship == row) {
+          this.router.navigate(['/chief-info', e.chief_id]);
+        }
+      });
+    });
   }
 
   getData(dataId: number) {

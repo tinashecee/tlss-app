@@ -34,7 +34,13 @@
     </mat-card-content>
     <mat-card-actions>
       <div class="example-button-row">
-        <button mat-raised-button color="primary">View Villagehead</button>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="openDialog2(data.villageship)"
+        >
+          View Villagehead
+        </button>
         <button mat-raised-button color="warn">Edit</button>
       </div>
     </mat-card-actions>

@@ -3,14 +3,13 @@ import { ChartConfiguration, ChartOptions, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { MaterialModule } from '../../../_module/Material.Module';
 @Component({
-  selector: 'app-headmanline',
+  selector: 'app-villageperprovince',
   standalone: true,
   imports: [BaseChartDirective, MaterialModule],
-  templateUrl: './headmanline.component.html',
-  styleUrl: './headmanline.component.scss',
+  templateUrl: './villageperprovince.component.html',
+  styleUrl: './villageperprovince.component.scss',
 })
-export class HeadmanlineComponent {
-  // Pie
+export class VillageperprovinceComponent {
   public pieChartOptions: ChartOptions<'pie'> = {
     responsive: false,
   };

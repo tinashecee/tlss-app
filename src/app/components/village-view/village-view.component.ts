@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../../_module/Material.Module';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MasterService } from '../../_service/master.service';
+import { VillageHead } from '../../../_model/Traditionalleader';
 
 @Component({
   selector: 'app-village-view',
@@ -17,7 +18,8 @@ export class VillageViewComponent {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private masterService: MasterService
+    private masterService: MasterService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -34,6 +36,15 @@ export class VillageViewComponent {
     this.masterService.GetVillageshipbyId(dataId).subscribe((data) => {
       this.data1 = data;
       this.data = this.data1[0];
+    });
+  }
+  openDialog2(row: any) {
+    this.masterService.GetAllVillagehead().subscribe((item: VillageHead[]) => {
+      item.forEach((e) => {
+        if (e.villagemanship?.toLowerCase() == row.toLowerCase()) {
+          this.router.navigate(['/villagehead-info', e.id]);
+        }
+      });
     });
   }
 }

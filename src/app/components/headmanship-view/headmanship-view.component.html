@@ -39,7 +39,13 @@
     </mat-card-content>
     <mat-card-actions>
       <div class="example-button-row">
-        <button mat-raised-button color="primary">View Headman</button>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="openDialog2(data.headmanship)"
+        >
+          View {{ data.headmanship }} Headman
+        </button>
         <button mat-raised-button color="warn">Edit</button>
       </div>
     </mat-card-actions>

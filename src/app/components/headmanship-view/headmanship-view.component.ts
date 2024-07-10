@@ -3,6 +3,7 @@ import { MaterialModule } from '../../../_module/Material.Module';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MasterService } from '../../_service/master.service';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { VillageHead } from '../../../_model/Traditionalleader';
 
 @Component({
   selector: 'app-headmanship-view',
@@ -19,7 +20,8 @@ export class HeadmanshipViewComponent {
   constructor(
     private activatedRoute: ActivatedRoute,
     private masterService: MasterService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -34,6 +36,16 @@ export class HeadmanshipViewComponent {
   openDialog() {
     const dialogRef = this.dialog.open(DialogContentExampleDialog, {
       data: { name: this.data.headmanship },
+    });
+  }
+  openDialog2(row: any) {
+    this.masterService.GetAllHeadman().subscribe((item: VillageHead[]) => {
+      item.forEach((e) => {
+        console.log(e.headmanship, row);
+        if (e.headmanship?.toLowerCase() == row.toLowerCase()) {
+          this.router.navigate(['/headman-info', e.id]);
+        }
+      });
     });
   }
   getData(dataId: number) {
