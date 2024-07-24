@@ -1,17 +1,18 @@
-import { Component } from '@angular/core';
-import { ChartConfiguration, ChartOptions, ChartType } from 'chart.js';
-import { BaseChartDirective } from 'ng2-charts';
+import { AfterViewInit, Component } from '@angular/core';
 import { MaterialModule } from '../../../_module/Material.Module';
-import { Villageship } from '../../../_model/Chieftainship';
+import { ChartConfiguration } from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
 import { MasterService } from '../../_service/master.service';
+import { Villageship } from '../../../_model/Chieftainship';
+
 @Component({
-  selector: 'app-villageperprovince',
+  selector: 'app-pie2',
   standalone: true,
   imports: [BaseChartDirective, MaterialModule],
-  templateUrl: './villageperprovince.component.html',
-  styleUrl: './villageperprovince.component.scss',
+  templateUrl: './pie2.component.html',
+  styleUrls: ['./pie2.component.scss'], // Corrected from 'styleUrl' to 'styleUrls'
 })
-export class VillageperprovinceComponent {
+export class Pie2Component implements AfterViewInit {
   provinceCounts: number[] = new Array(8).fill(0);
 
   constructor(private service: MasterService) {}
@@ -42,7 +43,7 @@ export class VillageperprovinceComponent {
   };
 
   loadInitialData() {
-    this.service.getallvillageships().subscribe((item: Villageship[]) => {
+    this.service.getallheadmanships().subscribe((item: Villageship[]) => {
       let chiefsData = item;
 
       chiefsData.forEach((chief) => {

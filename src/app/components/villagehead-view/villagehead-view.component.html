@@ -3,11 +3,18 @@
   <mat-card class="example-card">
     <mat-card-header>
       <mat-card-title-group>
-        <mat-card-title>{{ villagehead?.incumbent }}</mat-card-title>
+        <mat-card-title
+          ><span class="strong">{{
+            villagehead?.incumbent
+          }}</span></mat-card-title
+        >
         <mat-card-subtitle
-          ><a href="#"
-            ><strong>Villageship:</strong> {{ villagehead?.villagemanship }}</a
-          ></mat-card-subtitle
+          ><button
+            mat-raised-button
+            (click)="clickedRows3(villagehead?.villagemanship)"
+          >
+            <strong>Villageship:</strong> {{ villagehead?.villagemanship }}
+          </button></mat-card-subtitle
         >
         <img
           mat-card-md-image
@@ -18,15 +25,24 @@
     </mat-card-header>
     <mat-card-content>
       <p><strong>ID Number:</strong> {{ villagehead?.id_number }}</p>
-      <a href="#"
-        ><p>
+      <p>
+        <button
+          mat-raised-button
+          (click)="clickedRows1(villagehead?.chieftainship)"
+        >
           <strong>Chieftainship:</strong> {{ villagehead?.chieftainship }}
-        </p></a
-      >
-      <a href="#"
-        ><p><strong>Headmanship:</strong> {{ villagehead?.headmanship }}</p></a
-      >
-      <p><strong>Mutopo:</strong> {{ villagehead?.mutupo }}</p>
+        </button>
+      </p>
+      <p>
+        <button
+          mat-raised-button
+          (click)="clickedRows2(villagehead?.headmanship)"
+        >
+          <strong>Headmanship:</strong> {{ villagehead?.headmanship }}
+        </button>
+      </p>
+
+      <p><strong>Mutupo:</strong> {{ villagehead?.mutupo }}</p>
       <p><strong>EC Number:</strong> {{ villagehead?.ecnumber }}</p>
       <p><strong>Gender:</strong> {{ villagehead?.gender }}</p>
       <p><strong>Status:</strong> {{ villagehead?.status }}</p>

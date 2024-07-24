@@ -81,7 +81,15 @@
       [rowspan]="(cardLayout | async)?.chart?.rows"
     >
       <app-card title="Headmanships per province"
-        ><app-pie></app-pie>
+        ><app-pie2></app-pie2>
+      </app-card>
+    </mat-grid-tile>
+    <mat-grid-tile
+      [colspan]="(cardLayout | async)?.chart?.cols"
+      [rowspan]="(cardLayout | async)?.chart?.rows"
+    >
+      <app-card title="Villages per provinces"
+        ><app-villageperprovince></app-villageperprovince>
       </app-card>
     </mat-grid-tile>
     <mat-grid-tile
@@ -98,14 +106,6 @@
     >
       <app-card title="Headman Appointments this year"
         ><app-line></app-line>
-      </app-card>
-    </mat-grid-tile>
-    <mat-grid-tile
-      [colspan]="(cardLayout | async)?.chart?.cols"
-      [rowspan]="(cardLayout | async)?.chart?.rows"
-    >
-      <app-card title="Villages per provinces"
-        ><app-villageperprovince></app-villageperprovince>
       </app-card>
     </mat-grid-tile>
   </mat-grid-list>

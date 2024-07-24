@@ -3,12 +3,14 @@
   <mat-card class="example-card">
     <mat-card-header>
       <mat-card-title-group>
-        <mat-card-title>{{ chief?.incumbent }}</mat-card-title>
-        <mat-card-subtitle
-          ><a href="#"
-            ><strong>Chieftainship:</strong> {{ chief?.chieftainship }}</a
-          ></mat-card-subtitle
+        <mat-card-title
+          ><span class="strong">{{ chief?.incumbent }}</span></mat-card-title
         >
+        <mat-card-subtitle>
+          <button mat-raised-button (click)="clickedRows(chief?.chieftainship)">
+            <p><strong>Chieftainship:</strong> {{ chief?.chieftainship }}</p>
+          </button>
+        </mat-card-subtitle>
         <img
           mat-card-md-image
           src="{{ chief?.picture }}"
@@ -17,12 +19,10 @@
       </mat-card-title-group>
     </mat-card-header>
     <mat-card-content>
-      <p><strong>Last verified:</strong></p>
+      <p><strong>Last to be alive verified:</strong></p>
       <p><strong>ID Number:</strong> {{ chief?.id_number }}</p>
-      <a href="#"
-        ><p><strong>Chieftainship:</strong> {{ chief?.chieftainship }}</p></a
-      >
-      <p><strong>Mutopo:</strong> {{ chief?.mutupo }}</p>
+
+      <p><strong>Mutupo:</strong> {{ chief?.mutupo }}</p>
       <p><strong>EC Number:</strong> {{ chief?.ecnumber }}</p>
       <p><strong>Gender:</strong> {{ chief?.gender }}</p>
       <p><strong>Status:</strong> {{ chief?.status }}</p>
@@ -36,6 +36,8 @@
       <p><strong>Car Registration Number:</strong> {{ chief?.car_reg_no }}</p>
       <p><strong>Date of Issue:</strong> {{ chief?.dateofissue }}</p>
       <p><strong>Physical Address:</strong> {{ chief?.physicalladdress }}</p>
+      <p><strong>Messenger(s):</strong> {{ chief?.messengers }}</p>
+      <p><strong>Assets(s):</strong> {{ chief?.assets }}</p>
     </mat-card-content>
     <mat-card-actions>
       <div class="example-button-row">

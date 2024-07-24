@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { VillageHead } from '../../../_model/Traditionalleader';
 import { MasterService } from '../../_service/master.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { Villageship } from '../../../_model/Chieftainship';
 
 @Component({
   selector: 'app-chief-view',
@@ -16,6 +17,7 @@ export class ChiefViewComponent {
   chief1: any;
   chief: any;
   chiefId: number | null = null;
+  data: Villageship[] = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -38,9 +40,22 @@ export class ChiefViewComponent {
       this.chief1 = data;
       this.chief = this.chief1[0];
     });
+    this.masterService
+      .getallchieftainships()
+      .subscribe((item: Villageship[]) => {
+        console.log(item);
+        this.data = item;
+      });
   }
 
   appointChief() {
     this.router.navigate(['/appoint-chief']);
+  }
+  clickedRows(txt: String) {
+    this.data.forEach((e) => {
+      if (e.chieftainship?.toLowerCase() == txt.toLowerCase()) {
+        this.router.navigate(['/chieftainship-view', e.id]);
+      }
+    });
   }
 }

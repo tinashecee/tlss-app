@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
 import { map } from 'rxjs';
 import { MaterialModule } from '../../../_module/Material.Module';
@@ -15,6 +15,9 @@ import { PieComponent } from '../../charts/pie/pie.component';
 import { LineComponent } from '../../charts/line/line.component';
 import { HeadmanshipListComponent } from '../headmanship-list/headmanship-list.component';
 import { VillageperprovinceComponent } from '../../charts/villageperprovince/villageperprovince.component';
+import { MasterService } from '../../_service/master.service';
+import { VillageHead } from '../../../_model/Traditionalleader';
+import { Pie2Component } from '../../charts/pie2/pie2.component';
 Chart.register(...registerables);
 Chart.register(ChartDataLabels);
 @Component({
@@ -25,6 +28,7 @@ Chart.register(ChartDataLabels);
     MaterialModule,
     CardComponent,
     PieComponent,
+    Pie2Component,
     LineComponent,
     HeadmanshipListComponent,
     VillageperprovinceComponent,
@@ -32,11 +36,28 @@ Chart.register(ChartDataLabels);
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
-  /**
-   *
-   */
-  constructor(private breakpointObserver: BreakpointObserver) {}
+export class HomeComponent implements AfterViewInit {
+  // chiefsData: VillageHead[] = [];
+  provinceCounts: number[] = new Array(8).fill(0);
+  provinceHeadCounts: number[] = new Array(8).fill(0);
+  provinceVillageCounts: number[] = new Array(8).fill(0);
+  provinces = [
+    'Mashonaland West',
+    'Mashonaland Central',
+    'Mashonaland East',
+    'Manicaland',
+    'Midlands',
+    'Matebeleland North',
+    'Matebeleland South',
+    'Masvingo',
+  ];
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private service: MasterService
+  ) {}
+  ngAfterViewInit(): void {
+    this.loadInitialData(); // Call loadInitialData() to fetch data
+  }
   cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
@@ -70,7 +91,8 @@ export class HomeComponent {
       'Mat South',
       'Masvingo',
     ],
-    datasets: [{ data: [65, 59, 80, 81, 56, 55, 40, 90], label: 'Chiefs' }],
+
+    datasets: [{ data: this.provinceCounts, label: 'Chiefs' }],
   };
   public barChartData1: ChartConfiguration<'bar'>['data'] = {
     labels: [
@@ -83,7 +105,7 @@ export class HomeComponent {
       'Mat South',
       'Masvingo',
     ],
-    datasets: [{ data: [65, 59, 80, 81, 56, 55, 40, 90], label: 'Headman' }],
+    datasets: [{ data: this.provinceHeadCounts, label: 'Headman' }],
   };
   public barChartData2: ChartConfiguration<'bar'>['data'] = {
     labels: [
@@ -96,9 +118,7 @@ export class HomeComponent {
       'Mat South',
       'Masvingo',
     ],
-    datasets: [
-      { data: [65, 59, 80, 81, 56, 55, 40, 90], label: 'Villageheads' },
-    ],
+    datasets: [{ data: this.provinceVillageCounts, label: 'Villageheads' }],
   };
 
   public barChartOptions: ChartConfiguration<'bar'>['options'] = {
@@ -133,4 +153,110 @@ export class HomeComponent {
   ];
   public pieChartLegend = true;
   public pieChartPlugins = [];
+  loadInitialData() {
+    this.service.GetAllChiefs().subscribe((item: VillageHead[]) => {
+      let chiefsData = item;
+
+      chiefsData.forEach((chief) => {
+        switch (chief.province) {
+          case 'Mashonaland West':
+            this.provinceCounts[0]++;
+            break;
+          case 'Mashonaland Central':
+            this.provinceCounts[1]++;
+            break;
+          case 'Mashonaland East':
+            this.provinceCounts[2]++;
+            break;
+          case 'Manicaland':
+            this.provinceCounts[3]++;
+            break;
+          case 'Midlands':
+            this.provinceCounts[4]++;
+            break;
+          case 'Matebeleland North':
+            this.provinceCounts[5]++;
+            break;
+          case 'Matebeleland South':
+            this.provinceCounts[6]++;
+            break;
+          case 'Masvingo':
+            this.provinceCounts[7]++;
+            break;
+          default:
+            break;
+        }
+      });
+      console.log(this.provinceCounts);
+    });
+    this.service.GetAllHeadman().subscribe((item: VillageHead[]) => {
+      let headmanData = item;
+
+      headmanData.forEach((chief) => {
+        switch (chief.province) {
+          case 'Mashonaland West':
+            this.provinceHeadCounts[0]++;
+            break;
+          case 'Mashonaland Central':
+            this.provinceHeadCounts[1]++;
+            break;
+          case 'Mashonaland East':
+            this.provinceHeadCounts[2]++;
+            break;
+          case 'Manicaland':
+            this.provinceHeadCounts[3]++;
+            break;
+          case 'Midlands':
+            this.provinceHeadCounts[4]++;
+            break;
+          case 'Matebeleland North':
+            this.provinceHeadCounts[5]++;
+            break;
+          case 'Matebeleland South':
+            this.provinceHeadCounts[6]++;
+            break;
+          case 'Masvingo':
+            this.provinceHeadCounts[7]++;
+            break;
+          default:
+            break;
+        }
+      });
+      console.log(this.provinceHeadCounts);
+    });
+    this.service.GetAllVillagehead().subscribe((item: VillageHead[]) => {
+      let villageheadData = item;
+
+      villageheadData.forEach((chief) => {
+        switch (chief.province) {
+          case 'Mashonaland West':
+            this.provinceVillageCounts[0]++;
+            break;
+          case 'Mashonaland Central':
+            this.provinceVillageCounts[1]++;
+            break;
+          case 'Mashonaland East':
+            this.provinceVillageCounts[2]++;
+            break;
+          case 'Manicaland':
+            this.provinceVillageCounts[3]++;
+            break;
+          case 'Midlands':
+            this.provinceVillageCounts[4]++;
+            break;
+          case 'Matebeleland North':
+            this.provinceVillageCounts[5]++;
+            break;
+          case 'Matebeleland South':
+            this.provinceVillageCounts[6]++;
+            break;
+          case 'Masvingo':
+            this.provinceVillageCounts[7]++;
+            break;
+          default:
+            break;
+        }
+      });
+    });
+  }
 }

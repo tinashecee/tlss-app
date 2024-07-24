@@ -3,11 +3,16 @@
   <mat-card class="example-card">
     <mat-card-header>
       <mat-card-title-group>
-        <mat-card-title>{{ headman?.incumbent }}</mat-card-title>
+        <mat-card-title
+          ><span class="strong">{{ headman?.incumbent }}</span></mat-card-title
+        >
         <mat-card-subtitle
-          ><a href="#"
-            ><strong>Headmanship:</strong> {{ headman?.headmanship }}</a
-          ></mat-card-subtitle
+          ><button
+            mat-raised-button
+            (click)="clickedRows2(headman?.headmanship)"
+          >
+            <strong>Headmanship:</strong> {{ headman?.headmanship }}
+          </button></mat-card-subtitle
         >
         <img
           mat-card-md-image
@@ -18,10 +23,10 @@
     </mat-card-header>
     <mat-card-content>
       <p><strong>ID Number:</strong> {{ headman?.id_number }}</p>
-      <a href="#"
-        ><p><strong>Chieftainship:</strong> {{ headman?.chieftainship }}</p></a
-      >
-      <p><strong>Mutopo:</strong> {{ headman?.mutupo }}</p>
+      <button mat-raised-button (click)="clickedRows1(headman?.chieftainship)">
+        <p><strong>Chieftainship:</strong> {{ headman?.chieftainship }}</p>
+      </button>
+      <p><strong>Mutupo:</strong> {{ headman?.mutupo }}</p>
       <p><strong>EC Number:</strong> {{ headman?.ecnumber }}</p>
       <p><strong>Gender:</strong> {{ headman?.gender }}</p>
       <p><strong>Status:</strong> {{ headman?.status }}</p>
@@ -31,6 +36,8 @@
       <p><strong>Next of Kin:</strong> {{ headman?.nextofkin }}</p>
       <p><strong>Biosignature:</strong> {{ headman?.biosignature }}</p>
       <p><strong>Physical Address:</strong> {{ headman?.physicalladdress }}</p>
+      <p><strong>Messenger(s):</strong> {{ headman?.messengers }}</p>
+      <p><strong>Assets(s):</strong> {{ headman?.assets }}</p>
     </mat-card-content>
     <mat-card-actions>
       <div class="example-button-row">

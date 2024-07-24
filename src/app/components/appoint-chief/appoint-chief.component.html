@@ -2,15 +2,7 @@
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Personal Details</ng-template>
-      <mat-form-field>
-        <mat-label>ID Number</mat-label>
-        <input
-          matInput
-          placeholder="ID Number"
-          formControlName="id_number"
-          required
-        />
-      </mat-form-field>
+
       <mat-form-field>
         <mat-label>Incumbent</mat-label>
         <input
@@ -20,51 +12,17 @@
           required
         />
       </mat-form-field>
+      <br />
       <mat-form-field>
-        <mat-label>District</mat-label>
+        <mat-label>ID Number</mat-label>
         <input
           matInput
-          placeholder="District"
-          formControlName="district"
+          placeholder="ID Number"
+          formControlName="id_number"
           required
         />
       </mat-form-field>
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Chieftainship Details</ng-template>
-      <mat-form-field>
-        <mat-label>Province</mat-label>
-        <input
-          matInput
-          placeholder="Province"
-          formControlName="province"
-          required
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Chieftainship</mat-label>
-        <input
-          matInput
-          placeholder="Chieftainship"
-          formControlName="chieftainship"
-          required
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Mutupo</mat-label>
-        <input
-          matInput
-          placeholder="Mutupo"
-          formControlName="mutupo"
-          required
-        />
-      </mat-form-field>
+      <br />
       <mat-form-field>
         <mat-label>EC Number</mat-label>
         <input
@@ -74,16 +32,7 @@
           required
         />
       </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-
-  <mat-step [stepControl]="thirdFormGroup">
-    <form [formGroup]="thirdFormGroup">
-      <ng-template matStepLabel>Additional Information</ng-template>
+      <br />
       <mat-form-field>
         <mat-label>Gender</mat-label>
         <input
@@ -93,6 +42,7 @@
           required
         />
       </mat-form-field>
+      <br />
       <mat-form-field>
         <mat-label>Date of Birth</mat-label>
         <input
@@ -102,24 +52,25 @@
           required
         />
       </mat-form-field>
+      <br />
       <mat-form-field>
-        <mat-label>Date of Appointment</mat-label>
+        <mat-label>Mutupo</mat-label>
         <input
           matInput
-          placeholder="Date of Appointment"
-          formControlName="dateofappointment"
+          placeholder="Mutupo"
+          formControlName="mutupo"
           required
         />
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>Status</mat-label>
-        <input
-          matInput
-          placeholder="Status"
-          formControlName="status"
-          required
-        />
-      </mat-form-field>
+      <div>
+        <button mat-raised-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Additional Details</ng-template>
       <mat-form-field>
         <mat-label>Contact Number</mat-label>
         <input
@@ -129,6 +80,7 @@
           required
         />
       </mat-form-field>
+      <br />
       <mat-form-field>
         <mat-label>Physical Address</mat-label>
         <input
@@ -138,9 +90,121 @@
           required
         />
       </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Bank</mat-label>
+        <input matInput placeholder="Bank" formControlName="bank" required />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Account Number</mat-label>
+        <input
+          matInput
+          placeholder="Account Number"
+          formControlName="accountnumber"
+          required
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Car Registration</mat-label>
+        <input
+          matInput
+          placeholder="Car Reg"
+          formControlName="carreg"
+          required
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Date of Issue</mat-label>
+        <input
+          matInput
+          placeholder="Date of Issue"
+          formControlName="dateofissue"
+          required
+        />
+      </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Additional Details</ng-template>
+      <mat-form-field>
+        <mat-label>Spouses</mat-label>
+        <input
+          matInput
+          placeholder="Spouse"
+          formControlName="spouses"
+          required
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Offspring</mat-label>
+        <input
+          matInput
+          placeholder="Offspring"
+          formControlName="offspring"
+          required
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Messenger(s)</mat-label>
+        <input
+          matInput
+          placeholder="Messenger"
+          formControlName="messenger"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="fourthFormGroup">
+    <form [formGroup]="fourthFormGroup">
+      <ng-template matStepLabel>Additional Information</ng-template>
+
+      <mat-form-field>
+        <mat-label>Date of Appointment</mat-label>
+
+        <input
+          matInput
+          [matDatepicker]="picker"
+          placeholder="Date of Appointment"
+          formControlName="dateofappointment"
+          required
+        />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Status</mat-label>
+        <input
+          matInput
+          placeholder="Status"
+          formControlName="status"
+          required
+        />
+      </mat-form-field>
+
+      <div>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button (click)="stepper.reset()">Reset</button>
       </div>
     </form>
   </mat-step>
