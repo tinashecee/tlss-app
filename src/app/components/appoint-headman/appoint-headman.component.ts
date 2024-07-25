@@ -2,15 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { MaterialModule } from '../../../_module/Material.Module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
+
 @Component({
-  selector: 'app-appoint-chief',
+  selector: 'app-appoint-headman',
   standalone: true,
   imports: [MaterialModule],
   providers: [provideNativeDateAdapter()],
-  templateUrl: './appoint-chief.component.html',
-  styleUrl: './appoint-chief.component.scss',
+  templateUrl: './appoint-headman.component.html',
+  styleUrl: './appoint-headman.component.scss',
 })
-export class AppointChiefComponent implements OnInit {
+export class AppointHeadmanComponent implements OnInit {
   optionFormGroup!: FormGroup;
   dateFormGroup!: FormGroup;
   firstFormGroup!: FormGroup;

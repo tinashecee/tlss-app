@@ -17,6 +17,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
 @NgModule({
   exports: [
@@ -39,6 +40,7 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     MatGridListModule,
     MatDatepickerModule,
+    MatSelectModule,
     CommonModule, //Common module
   ],
 })
