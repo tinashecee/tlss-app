@@ -69,6 +69,8 @@ export class HeadmanViewComponent {
     });
   }
   appointHeadman() {
-    this.router.navigate(['/appoint-headman']);
+    this.router.navigate(['/appoint-headman'], {
+      state: { data: this.headman },
+    });
   }
 }

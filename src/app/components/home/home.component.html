@@ -2,18 +2,6 @@
 <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
   <mat-grid-list cols="{{ (cardLayout | async)?.columns }}" rowHeight="200px">
-    <!--Mini Cards-->
-    <!--Mini Cards
-    <mat-grid-tile
-      [colspan]="(cardLayout | async)?.miniCard?.cols"
-      [rowspan]="(cardLayout | async)?.miniCard?.rows"
-    >
-    </mat-grid-tile>
-    -->
-    <!--Charts-->
-    <!--dash.component.html-->
-
-    <!--Charts-->
     <mat-grid-tile
       [colspan]="(cardLayout | async)?.chart?.cols"
       [rowspan]="(cardLayout | async)?.chart?.rows"

@@ -115,4 +115,11 @@ export const routes: Routes = [
         (m) => m.AppointChiefComponent
       ),
   },
+  {
+    path: 'appoint-headman',
+    loadComponent: () =>
+      import('./components/appoint-headman/appoint-headman.component').then(
+        (m) => m.AppointHeadmanComponent
+      ),
+  },
 ];

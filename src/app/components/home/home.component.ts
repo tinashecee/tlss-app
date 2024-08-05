@@ -155,7 +155,15 @@ export class HomeComponent implements AfterViewInit {
   public pieChartPlugins = [];
   loadInitialData() {
     this.service.GetAllChiefs().subscribe((item: VillageHead[]) => {
-      let chiefsData = item;
+      let chiefsData: any[] = [];
+      item.forEach((e) => {
+        if (
+          e.status?.toLowerCase() != 'removed' ||
+          e.status?.toLowerCase() != 'deceased'
+        ) {
+          chiefsData.push(e);
+        }
+      });
 
       chiefsData.forEach((chief) => {
         switch (chief.province) {
@@ -190,7 +198,15 @@ export class HomeComponent implements AfterViewInit {
       console.log(this.provinceCounts);
     });
     this.service.GetAllHeadman().subscribe((item: VillageHead[]) => {
-      let headmanData = item;
+      let headmanData: any[] = [];
+      item.forEach((e) => {
+        if (
+          e.status?.toLowerCase() != 'removed' ||
+          e.status?.toLowerCase() != 'deceased'
+        ) {
+          headmanData.push(e);
+        }
+      });
 
       headmanData.forEach((chief) => {
         switch (chief.province) {
@@ -225,7 +241,15 @@ export class HomeComponent implements AfterViewInit {
       console.log(this.provinceHeadCounts);
     });
     this.service.GetAllVillagehead().subscribe((item: VillageHead[]) => {
-      let villageheadData = item;
+      let villageheadData: any[] = [];
+      item.forEach((e) => {
+        if (
+          e.status?.toLowerCase() != 'removed' ||
+          e.status?.toLowerCase() != 'deceased'
+        ) {
+          villageheadData.push(e);
+        }
+      });
 
       villageheadData.forEach((chief) => {
         switch (chief.province) {

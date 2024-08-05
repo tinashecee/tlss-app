@@ -49,7 +49,7 @@ export class ChiefViewComponent {
   }
 
   appointChief() {
-    this.router.navigate(['/appoint-chief']);
+    this.router.navigate(['/appoint-chief'], { state: { data: this.chief } });
   }
   clickedRows(txt: String) {
     this.data.forEach((e) => {

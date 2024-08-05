@@ -1,11 +1,10 @@
-<mat-stepper labelPosition="bottom" #stepper>
-  <mat-step [stepControl]="optionFormGroup">
+<mat-stepper labelPosition="bottom" linear #stepper>
+  <mat-step [stepControl]="optionFormGroup" [editable]="isEditable">
     <form [formGroup]="optionFormGroup">
       <ng-template matStepLabel>Status</ng-template>
-
       <mat-form-field class="example-full-width">
         <mat-label>Status</mat-label>
-        <mat-select formControlName="status1" required="">
+        <mat-select formControlName="status" required>
           <mat-option value="Substantive">Substantive</mat-option>
           <mat-option value="Acting">Acting</mat-option>
           <mat-option value="Removed">Removed</mat-option>
@@ -26,21 +25,17 @@
       </div>
     </form>
   </mat-step>
-  <mat-step
-    [stepControl]="dateFormGroup"
-    [completed]="!disableOtherForms"
-    [editable]="!disableOtherForms"
-  >
+
+  <mat-step [stepControl]="dateFormGroup" [editable]="isEditable">
     <form [formGroup]="dateFormGroup">
       <ng-template matStepLabel>Date of Death/Removal</ng-template>
-
       <mat-form-field class="example-full-width">
         <mat-label>Date of Death or Removal</mat-label>
         <input
           matInput
           [matDatepicker]="picker4"
           placeholder="Date of Death/Removal"
-          formControlName="date1"
+          formControlName="dateofdeathorremoval"
           required
         />
         <mat-datepicker-toggle
@@ -56,63 +51,236 @@
       </div>
     </form>
   </mat-step>
-  <!-- Repeat the pattern for the remaining form groups -->
-  <mat-step
-    [stepControl]="firstFormGroup"
-    [completed]="!disableOtherForms"
-    [editable]="!disableOtherForms"
-  >
+
+  <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Personal Details</ng-template>
-      <!-- Personal Details Fields -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Incumbent</mat-label>
+        <input
+          matInput
+          placeholder="Incumbent"
+          formControlName="incumbent"
+          required
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>ID Number</mat-label>
+        <input
+          matInput
+          placeholder="ID Number"
+          formControlName="id_number"
+          required
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>EC Number</mat-label>
+        <input
+          matInput
+          placeholder="EC Number"
+          formControlName="ecnumber"
+          required
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender" required>
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Date of Birth</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker1"
+          placeholder="Date of Birth"
+          formControlName="dateofbirth"
+          required
+        />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker1"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Mutupo</mat-label>
+        <input
+          matInput
+          placeholder="Mutupo"
+          formControlName="mutupo"
+          required
+        />
+      </mat-form-field>
       <div>
         <button mat-raised-button matStepperPrevious>Back</button>
         <button mat-raised-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
-  <mat-step
-    [stepControl]="secondFormGroup"
-    [completed]="!disableOtherForms"
-    [editable]="!disableOtherForms"
-  >
+
+  <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Additional Details</ng-template>
-      <!-- Additional Details Fields -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Contact Number</mat-label>
+        <input
+          matInput
+          placeholder="Contact Number"
+          formControlName="contactnumber"
+          required
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Physical Address</mat-label>
+        <input
+          matInput
+          placeholder="Physical Address"
+          formControlName="physicalladdress"
+          required
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Bank</mat-label>
+        <input matInput placeholder="Bank" formControlName="bank" required />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Account Number</mat-label>
+        <input
+          matInput
+          placeholder="Account Number"
+          formControlName="accountnumber"
+          required
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Car Registration</mat-label>
+        <input
+          matInput
+          placeholder="Car Reg"
+          formControlName="carreg"
+          required
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Date of Issue</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker2"
+          placeholder="Date of Issue"
+          formControlName="dateofissue"
+          required
+        />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker2"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Assets</mat-label>
+        <input
+          matInput
+          placeholder="Assets"
+          formControlName="assets"
+          required
+        />
+      </mat-form-field>
       <div>
         <button mat-raised-button matStepperPrevious>Back</button>
         <button mat-raised-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
-  <mat-step
-    [stepControl]="thirdFormGroup"
-    [completed]="!disableOtherForms"
-    [editable]="!disableOtherForms"
-  >
+
+  <mat-step [stepControl]="thirdFormGroup" [editable]="isEditable">
     <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>Additional Details</ng-template>
-      <!-- Additional Details Fields -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Spouses</mat-label>
+        <input
+          matInput
+          placeholder="Spouse"
+          formControlName="spouses"
+          required
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Offspring</mat-label>
+        <input
+          matInput
+          placeholder="Offspring"
+          formControlName="offspring"
+          required
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Messenger(s)</mat-label>
+        <input
+          matInput
+          placeholder="Messenger"
+          formControlName="messengers"
+          required
+        />
+      </mat-form-field>
       <div>
         <button mat-raised-button matStepperPrevious>Back</button>
         <button mat-raised-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
-  <mat-step
-    [stepControl]="fourthFormGroup"
-    [completed]="!disableOtherForms"
-    [editable]="!disableOtherForms"
-  >
+
+  <mat-step [stepControl]="fourthFormGroup" [editable]="isEditable">
     <form [formGroup]="fourthFormGroup">
       <ng-template matStepLabel>Additional Information</ng-template>
-      <!-- Additional Information Fields -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Date of Appointment</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker3"
+          placeholder="Date of Appointment"
+          formControlName="dateofappointment"
+          required
+        />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker3"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker3></mat-datepicker>
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status" required>
+          <mat-option value="SUBSTANTIVE">Substantive</mat-option>
+          <mat-option value="ACTING">Acting</mat-option>
+        </mat-select>
+      </mat-form-field>
       <div>
         <button mat-raised-button matStepperPrevious>Back</button>
         <button mat-raised-button (click)="stepper.reset()" color="warn">
           Reset
         </button>
-        <button mat-raised-button color="primary" (click)="onSubmit()">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="onSubmit()"
+          [disabled]="!fourthFormGroup.valid"
+        >
           Submit
         </button>
       </div>
