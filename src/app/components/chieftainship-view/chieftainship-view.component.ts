@@ -48,7 +48,7 @@ export class ChieftainshipViewComponent {
     });
   }
   navigateToHistory() {
-    this.router.navigate(['/chief-lineage']);
+    this.router.navigate(['/chief-lineage'], { state: { data: this.data } });
   }
 
   openDialog2(row: any) {

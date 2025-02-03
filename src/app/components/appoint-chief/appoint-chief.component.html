@@ -1,7 +1,7 @@
 <mat-stepper labelPosition="bottom" linear #stepper>
   <mat-step [stepControl]="optionFormGroup" [editable]="isEditable">
     <form [formGroup]="optionFormGroup">
-      <ng-template matStepLabel>Status</ng-template>
+      <ng-template matStepLabel>Change status of selected Chief</ng-template>
       <mat-form-field class="example-full-width">
         <mat-label>Status</mat-label>
         <mat-select formControlName="status" required>
@@ -28,7 +28,9 @@
 
   <mat-step [stepControl]="dateFormGroup" [editable]="isEditable">
     <form [formGroup]="dateFormGroup">
-      <ng-template matStepLabel>Date of Death/Removal</ng-template>
+      <ng-template matStepLabel
+        >Date of Death/Removal od selected Chief</ng-template
+      >
       <mat-form-field class="example-full-width">
         <mat-label>Date of Death or Removal</mat-label>
         <input
