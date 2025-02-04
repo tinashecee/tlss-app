@@ -140,4 +140,23 @@ export class MasterService {
       headers: this.getHeaders(),
     });
   }
+
+  uploadHeadmen(headmen: any[]): Observable<any> {
+    console.log(headmen);
+    return this.http.post(`${this.apiUrl}/headmen/upload`, headmen, {
+      headers: this.getHeaders(),
+    });
+  }
+
+  deleteHeadman(headmanId: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/headmen/${headmanId}`, {
+      headers: this.getHeaders(),
+    });
+  }
+
+  updateHeadman(headmanId: string, data: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/headmen/${headmanId}`, data, {
+      headers: this.getHeaders(),
+    });
+  }
 }

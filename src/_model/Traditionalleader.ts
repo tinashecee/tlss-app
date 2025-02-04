@@ -1,6 +1,7 @@
 export interface VillageHead {
   id?: number;
   chief_id?: string;
+  headman_id?: string;
   id_number?: string;
   incumbent?: string;
   district?: string;
