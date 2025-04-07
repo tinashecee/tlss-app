@@ -18,6 +18,9 @@ interface UserData {
   username: string;
   token: string;
   expiresAt?: number; // Timestamp when token expires
+  role: string;
+  province: string;
+  district: string;
 }
 
 @Injectable({
@@ -26,7 +29,7 @@ interface UserData {
 export class AuthService {
   private currentUserSubject: BehaviorSubject<UserData | null>;
   public currentUser: Observable<UserData | null>;
-  private apiUrl = 'http://localhost:3306'; // Your API URL
+  private apiUrl = 'http://34.69.192.233:3000'; // Your API URL
   private tokenExpirationTimer: any;
 
   constructor(private http: HttpClient, private router: Router) {
@@ -90,8 +93,11 @@ export class AuthService {
             username,
             token: response.token,
             expiresAt,
+            role: response.role,
+            province: response.province,
+            district: response.district,
           };
-
+          console.log(user);
           // Store user with expiration
           localStorage.setItem('currentUser', JSON.stringify(user));
           this.currentUserSubject.next(user);

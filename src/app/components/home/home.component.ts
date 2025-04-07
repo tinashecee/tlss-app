@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
 import { map } from 'rxjs';
 import { MaterialModule } from '../../../_module/Material.Module';
@@ -38,7 +38,8 @@ Chart.register(ChartDataLabels);
 })
 export class HomeComponent implements AfterViewInit {
   // chiefsData: VillageHead[] = [];
-  provinceCounts: number[] = new Array(8).fill(0);
+  public provinceCounts: number[] = new Array(8).fill(0);
+
   provinceHeadCounts: number[] = new Array(8).fill(0);
   provinceVillageCounts: number[] = new Array(8).fill(0);
   provinces = [
@@ -53,7 +54,8 @@ export class HomeComponent implements AfterViewInit {
   ];
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private service: MasterService
+    private service: MasterService,
+    private cdr: ChangeDetectorRef
   ) {}
   ngAfterViewInit(): void {
     this.loadInitialData(); // Call loadInitialData() to fetch data
@@ -94,6 +96,7 @@ export class HomeComponent implements AfterViewInit {
 
     datasets: [{ data: this.provinceCounts, label: 'Chiefs' }],
   };
+
   public barChartData1: ChartConfiguration<'bar'>['data'] = {
     labels: [
       'Mash West',
@@ -125,7 +128,7 @@ export class HomeComponent implements AfterViewInit {
     scales: {
       x: {},
       y: {
-        min: 10,
+        beginAtZero: true,
       },
     },
     plugins: {
@@ -153,55 +156,66 @@ export class HomeComponent implements AfterViewInit {
   ];
   public pieChartLegend = true;
   public pieChartPlugins = [];
+
   loadInitialData() {
     this.service.GetAllChiefs().subscribe((item: VillageHead[]) => {
       let chiefsData: any[] = [];
       item.forEach((e) => {
         if (
-          e.status?.toLowerCase() != 'removed' ||
+          e.status?.toLowerCase() != 'removed' &&
           e.status?.toLowerCase() != 'deceased'
         ) {
           chiefsData.push(e);
         }
       });
-
       chiefsData.forEach((chief) => {
-        switch (chief.province) {
-          case 'Mashonaland West':
+        switch (chief.province.toLowerCase()) {
+          case 'mashonaland west':
             this.provinceCounts[0]++;
             break;
-          case 'Mashonaland Central':
+          case 'mashonaland central':
             this.provinceCounts[1]++;
             break;
-          case 'Mashonaland East':
+          case 'mashonaland east':
             this.provinceCounts[2]++;
             break;
-          case 'Manicaland':
+          case 'manicaland':
             this.provinceCounts[3]++;
             break;
-          case 'Midlands':
+          case 'midlands':
             this.provinceCounts[4]++;
             break;
-          case 'Matebeleland North':
+          case 'matebeleland north':
             this.provinceCounts[5]++;
             break;
-          case 'Matebeleland South':
+          case 'matebeleland south':
             this.provinceCounts[6]++;
             break;
-          case 'Masvingo':
+          case 'masvingo':
             this.provinceCounts[7]++;
             break;
           default:
             break;
         }
       });
-      console.log(this.provinceCounts);
+      // Update chart data after counts are set
+      this.barChartData = {
+        labels: this.provinces.map((p) =>
+          p
+            .split(' ')
+            .map((w) => w.substring(0, 3))
+            .join(' ')
+        ),
+        datasets: [{ data: Array.from(this.provinceCounts), label: 'Chiefs' }],
+      };
     });
     this.service.GetAllHeadman().subscribe((item: VillageHead[]) => {
       let headmanData: any[] = [];
+      // Reset counts before updating
+      this.provinceHeadCounts = new Array(8).fill(0);
       item.forEach((e) => {
         if (
-          e.status?.toLowerCase() != 'removed' ||
+          e.status?.toLowerCase() != 'removed' &&
           e.status?.toLowerCase() != 'deceased'
         ) {
           headmanData.push(e);
@@ -209,42 +223,54 @@ export class HomeComponent implements AfterViewInit {
       });
 
       headmanData.forEach((chief) => {
-        switch (chief.province) {
-          case 'Mashonaland West':
+        switch (chief.province.toLowerCase()) {
+          case 'mashonaland west':
             this.provinceHeadCounts[0]++;
             break;
-          case 'Mashonaland Central':
+          case 'mashonaland central':
             this.provinceHeadCounts[1]++;
             break;
-          case 'Mashonaland East':
+          case 'mashonaland east':
             this.provinceHeadCounts[2]++;
             break;
-          case 'Manicaland':
+          case 'manicaland':
             this.provinceHeadCounts[3]++;
             break;
-          case 'Midlands':
+          case 'midlands':
             this.provinceHeadCounts[4]++;
             break;
-          case 'Matebeleland North':
+          case 'matebeleland north':
             this.provinceHeadCounts[5]++;
             break;
-          case 'Matebeleland South':
+          case 'matebeleland south':
             this.provinceHeadCounts[6]++;
             break;
-          case 'Masvingo':
+          case 'masvingo':
             this.provinceHeadCounts[7]++;
             break;
           default:
             break;
         }
       });
-      console.log(this.provinceHeadCounts);
+      console.log(Array.from(this.provinceHeadCounts));
+      // Update chart data after counts are set
+      this.barChartData1 = {
+        labels: this.provinces.map((p) =>
+          p
+            .split(' ')
+            .map((w) => w.substring(0, 3))
+            .join(' ')
+        ),
+        datasets: [{ data: [...this.provinceHeadCounts], label: 'Headman' }],
+      };
     });
     this.service.GetAllVillagehead().subscribe((item: VillageHead[]) => {
       let villageheadData: any[] = [];
+      // Reset counts before updating
+      this.provinceVillageCounts = new Array(8).fill(0);
       item.forEach((e) => {
         if (
-          e.status?.toLowerCase() != 'removed' ||
+          e.status?.toLowerCase() != 'removed' &&
           e.status?.toLowerCase() != 'deceased'
         ) {
           villageheadData.push(e);

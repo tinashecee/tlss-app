@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/internal/Observable';
   providedIn: 'root',
 })
 export class MasterService {
-  private apiUrl = 'http://localhost:3306'; // Your API URL
+  private apiUrl = 'http://34.69.192.233:3000'; // Your API URL
   constructor(private http: HttpClient) {}
   private getHeaders(): HttpHeaders {
     const userData = localStorage.getItem('currentUser');
@@ -22,39 +22,69 @@ export class MasterService {
   }
 
   getallvillageships(): Observable<Villageship[]> {
-    return this.http.get<Villageship[]>(`${this.apiUrl}/villageships`, {
-      headers: this.getHeaders(),
-    });
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+
+    let url = `${this.apiUrl}/villageships`;
+    if (currentUser.role === 'Provincial Officer') {
+      url += `?province=${encodeURIComponent(currentUser.province)}`;
+    }
+
+    return this.http.get<Villageship[]>(url, { headers: this.getHeaders() });
   }
 
   getallheadmanships(): Observable<Villageship[]> {
-    return this.http.get<Villageship[]>(`${this.apiUrl}/headmanships`, {
-      headers: this.getHeaders(),
-    });
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+
+    let url = `${this.apiUrl}/headmanships`;
+    if (currentUser.role === 'Provincial Officer') {
+      url += `?province=${encodeURIComponent(currentUser.province)}`;
+    }
+
+    return this.http.get<Villageship[]>(url, { headers: this.getHeaders() });
   }
 
   getallchieftainships(): Observable<Villageship[]> {
-    return this.http.get<Villageship[]>(`${this.apiUrl}/chieftainships`, {
-      headers: this.getHeaders(),
-    });
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+
+    let url = `${this.apiUrl}/chieftainships`;
+    if (currentUser.role === 'Provincial Officer') {
+      url += `?province=${encodeURIComponent(currentUser.province)}`;
+    }
+    console.log();
+    return this.http.get<Villageship[]>(url, { headers: this.getHeaders() });
   }
 
   GetAllChiefs(): Observable<VillageHead[]> {
-    return this.http.get<VillageHead[]>(`${this.apiUrl}/chiefs`, {
-      headers: this.getHeaders(),
-    });
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+
+    let url = `${this.apiUrl}/chiefs`;
+    if (currentUser.role === 'Provincial Officer') {
+      url += `?province=${encodeURIComponent(currentUser.province)}`;
+    }
+
+    return this.http.get<VillageHead[]>(url, { headers: this.getHeaders() });
   }
 
   GetAllHeadman(): Observable<VillageHead[]> {
-    return this.http.get<VillageHead[]>(`${this.apiUrl}/headman`, {
-      headers: this.getHeaders(),
-    });
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+
+    let url = `${this.apiUrl}/headman`;
+    if (currentUser.role === 'Provincial Officer') {
+      url += `?province=${encodeURIComponent(currentUser.province)}`;
+    }
+
+    return this.http.get<VillageHead[]>(url, { headers: this.getHeaders() });
   }
 
   GetAllVillagehead(): Observable<VillageHead[]> {
-    return this.http.get<VillageHead[]>(`${this.apiUrl}/villageheads`, {
-      headers: this.getHeaders(),
-    });
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+
+    let url = `${this.apiUrl}/villageheads`;
+    if (currentUser.role === 'Provincial Officer') {
+      url += `?province=${encodeURIComponent(currentUser.province)}`;
+    }
+
+    return this.http.get<VillageHead[]>(url, { headers: this.getHeaders() });
   }
 
   GetChiefbyId(id: number): Observable<VillageHead> {
